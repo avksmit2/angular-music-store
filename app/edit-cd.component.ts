@@ -11,7 +11,17 @@ import { CD } from './cd.model';
       <label>Edit CD Artist:</label>
       <input  class="form-control" [(ngModel)]="childSelectedCD.artist">
       <label>Edit CD Genre:</label>
-      <input  class="form-control" [(ngModel)]="childSelectedCD.genre">
+      <select [(ngModel)]="childSelectedCD.genre" class="form-control">
+        <option>Country</option>
+        <option>Rap</option>
+        <option>Classical</option>
+        <option>Jazz</option>
+        <option>Rock</option>
+        <option>Reggae</option>
+        <option>Indie</option>
+        <option>Techno</option>
+        <option>Latin American</option>
+      </select>
       <label>Edit CD Price:</label>
       <input  class="form-control" [(ngModel)]="childSelectedCD.price">
       <button (click)="doneClicked()">Done Editing</button>

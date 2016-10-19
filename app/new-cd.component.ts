@@ -12,7 +12,17 @@ import { CD } from './cd.model';
       <label>Artist:</label>
       <input  class="form-control" #newArtist>
       <label>Genre:</label>
-      <input  class="form-control" #newGenre>
+      <select #newGenre class="form-control">
+        <option>Country</option>
+        <option>Rap</option>
+        <option>Classical</option>
+        <option>Jazz</option>
+        <option>Rock</option>
+        <option>Reggae</option>
+        <option>Indie</option>
+        <option>Techno</option>
+        <option>Latin American</option>
+      </select>
       <label>Price:</label>
       <input  class="form-control" #newPrice>
       <label>Album Cover:</label>

@@ -5,8 +5,21 @@ import { CD } from './cd.model'
   selector: 'cd-list',
   template: `
     <h1>Current CDs</h1>
+    <label>Display By Genre</label>
+    <select (change)="onChange($event.target.value)" class="form-control">
+      <option selected="selected">Show All</option>
+      <option>Country</option>
+      <option>Rap</option>
+      <option>Classical</option>
+      <option>Jazz</option>
+      <option>Rock</option>
+      <option>Reggae</option>
+      <option>Indie</option>
+      <option>Techno</option>
+      <option>Latin American</option>
+    </select>
     <div class="container">
-      <div *ngFor="let currentCD of childCDList">
+      <div *ngFor="let currentCD of childCDList| genre:selectedGenre ">
         <h3>{{ currentCD.name }}</h3>
         <div class="row">
           <div class="col-xs-2">
@@ -29,7 +42,11 @@ import { CD } from './cd.model'
 export class CDListComponent {
   @Input() childCDList: CD[];
   @Output() clickSender = new EventEmitter();
+  public selectedGenre = "Show All";
   editCD(cdToEdit: CD) {
     this.clickSender.emit(cdToEdit);
+  }
+  onChange(optionFromMenu: string){
+    this.selectedGenre = optionFromMenu;
   }
 }
