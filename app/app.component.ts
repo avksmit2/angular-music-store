@@ -1,38 +1,36 @@
 import { Component } from '@angular/core';
+import { CD } from './cd.model'
 
 @Component({
     selector: 'my-app',
     template: `
     <div class="container">
-      <h1>My First Angular 2 App</h1>
-      <h3 (click)="showDetails(currentTask)" *ngFor="let currentTask of tasks">{{ currentTask.description }}</h3>
-      <h1>Edit Task</h1>
-      <div>
-        <label>Enter Task Description:</label>
-        <input [(ngModel)]="selectedTask.description">
-      </div>
-      <div>
-        <label>Enter Task ID:</label>
-        <input [(ngModel)]="selectedTask.id">
-      </div>
+      <h1 class="text-center">Music Store</h1>
+      <cd-list [childCDList]="masterCDList"
+                (clickSender)="editCD($event)"
+      ></cd-list>
+      <edit-cd [childSelectedCD]="selectedCD"
+                (doneClickedSender)="finishedEditing()"
+      ></edit-cd>
+      <new-cd (newCDSender)="addCD($event)"></new-cd>
     </div>
     `
 })
 
 export class AppComponent {
-  public tasks: Task[] = [
-    new Task("Create To-Do List app.", 0),
-    new Task("Learn Kung Fu.", 1),
-    new Task("Rewatch all the Lord of the Rings movies.", 2),
-    new Task("Do the laundry", 3)
+  public masterCDList: CD[] = [
+    new CD("Good Song", "Great Artist", "Rock", 13.98),
+    new CD("Better Song", "Best Artist", "Indie", 19.76),
+    new CD("Bad Song", "Poor Artist", "Rap", 4.23)
   ];
-  selectedTask: Task = this.tasks[0];
-  showDetails(clickedTask: Task) {
-    this.selectedTask = clickedTask;
+  selectedCD: CD = null;
+  editCD(clickedCD: CD) {
+    this.selectedCD = clickedCD;
   }
-}
-
-export class Task {
-  public done: boolean = false;
-  constructor(public description: string, public id: number) { }
+  finishedEditing() {
+    this.selectedCD = null;
+  }
+  addCD(newCDFromChild: CD) {
+    this.masterCDList.push(newCDFromChild);
+  }
 }
