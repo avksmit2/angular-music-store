@@ -9,6 +9,9 @@ import { CD } from './cd.model'
       <div *ngFor="let currentCD of childCDList">
         <h3>{{ currentCD.name }}</h3>
         <div class="row">
+          <div class="col-xs-2">
+        <img class="albumCover"  [src]="currentCD.albumCover" onError="this.src='https://ugotalksalot.files.wordpress.com/2016/06/no-thumb.jpg';">
+          </div>
           <div class="col-xs-4">
             <h5>Artist: {{ currentCD.artist }}</h5>
           </div><div class="col-xs-4">

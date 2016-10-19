@@ -4,18 +4,20 @@ import { CD } from './cd.model';
 @Component({
   selector: 'new-cd',
   template: `
-  <div class="container">
+  <div class="well">
     <h1>Enter a New CD</h1>
     <form>
       <label>CD Name:</label>
-      <input #newName>
+      <input class="form-control" #newName>
       <label>Artist:</label>
-      <input #newArtist>
+      <input  class="form-control" #newArtist>
       <label>Genre:</label>
-      <input #newGenre>
+      <input  class="form-control" #newGenre>
       <label>Price:</label>
-      <input #newPrice>
-      <button (click)="addCDClicked(newName.value, newArtist.value, newGenre.value, newPrice.value)">Add CD</button>
+      <input  class="form-control" #newPrice>
+      <label>Album Cover:</label>
+      <input  class="form-control" #newAlbumCover placeholder="optional">
+      <button (click)="addCDClicked(newName.value, newArtist.value, newGenre.value, newPrice.value, newAlbumCover.value)">Add CD</button>
       </form>
   </div>
   `
@@ -23,8 +25,8 @@ import { CD } from './cd.model';
 
   export class NewCDComponent {
     @Output() newCDSender = new EventEmitter();
-    addCDClicked(name: string, artist: string, genre: string, price: number) {
-      var newCD: CD = new CD(name, artist, genre, price);
+    addCDClicked(name: string, artist: string, genre: string, price: number, albumCover: string) {
+      var newCD: CD = new CD(name, artist, genre, price, albumCover);
       this.newCDSender.emit(newCD);
     }
   }
