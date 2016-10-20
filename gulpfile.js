@@ -7,11 +7,16 @@ var uglify = require('gulp-uglify');
 // used for pulling in bower files.
 var lib = require('bower-files')({
   "overrides":{
-    "bootstrap" : {
+    "bootstrap":{
       "main": [
         "less/bootstrap.less",
         "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
+        "dist/js/bootstrap.js",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.tff",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
       ]
     }
   }

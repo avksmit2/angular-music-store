@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { CD } from './cd.model'
+import { CD } from './cd.model';
+import { Cart } from './cart.model';
 
 @Component({
     selector: 'my-app',
     template: `
-    <div class="container">
-      <h1 class="text-center">Music Store</h1>
+    <div class="container" *ngIf="admin">
+      <h1 class="text-center">Music Store(admin)</h1>
       <cd-list [childCDList]="masterCDList"
                 (clickSender)="editCD($event)"
       ></cd-list>
@@ -14,6 +15,19 @@ import { CD } from './cd.model'
       ></edit-cd>
       <new-cd (newCDSender)="addCD($event)"></new-cd>
     </div>
+
+    <div class="container" *ngIf="!admin">
+      <h1 class="text-center">Music Store (customer)</h1>
+      <customer-cd-list [childCDList]="masterCDList"
+                        [childCart]="masterCart"
+                (clickSender)="editCD($event)"
+      ></customer-cd-list>
+      <cart
+        [childCart]="masterCart"
+      ></cart>
+    </div>
+
+
     `
 })
 
@@ -23,7 +37,13 @@ export class AppComponent {
     new CD("Better Song", "Best Artist", "Indie", 19.76),
     new CD("Bad Song", "Poor Artist", "Rap", 4.23)
   ];
-  selectedCD: CD = null;
+  public masterCart = new Cart("myCart");
+  // this.masterCart;
+  // public newCd = new CD("Bad Song", "Poor Artist", "Rap", 4.23);
+
+  public selectedCD: CD = null;
+  public admin: boolean = false;
+  // public customer: boolean = true;
   editCD(clickedCD: CD) {
     this.selectedCD = clickedCD;
   }

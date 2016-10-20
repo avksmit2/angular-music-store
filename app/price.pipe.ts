@@ -23,6 +23,5 @@ import {CD} from './CD.model';
       else{
         return input;
       }
-
     }
   }
