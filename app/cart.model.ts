@@ -9,7 +9,7 @@ export class Cart {
     this.cart.forEach(function(cd){
       output += cd.price;
     });
-  return output;
+  return output.toFixed(2);
   }
 
 }

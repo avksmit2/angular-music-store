@@ -3,3 +3,14 @@
   height: 100px;
   overflow: hidden;
 }
+.albumBox{
+  float: left;
+  margin: 10px;
+  border: 1px solid black;
+  padding: 3px;
+  text-align: center;
+}
+
+.orderArea{
+  width: 100%;
+}

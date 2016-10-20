@@ -6,12 +6,15 @@ import { Cart } from './cart.model';
   selector: 'cart',
   template: `
     <div class="well">
-      <h1>Cart</h1>
-      <h1>{{childCart.name}}</h1>
-      <div *ngFor="let currentCd of childCart.cart">
+      <h1>Your Cart <span> $\{{childCart.getCartTotal()}}</span></h1>
+      <div class="orderArea" *ngFor="let currentCd of childCart.cart">
+        <div class="albumBox">
+          <img class="albumCover"  [src]="currentCd.albumCover" onError="this.src='https://ugotalksalot.files.wordpress.com/2016/06/no-thumb.jpg';">
         <p>cd: {{currentCd.name}}</p>
+        </div>
+
       </div>
-      <p>{{childCart.getCartTotal()}}</p>
+
     </div>
   `
 })
