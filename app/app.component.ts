@@ -5,17 +5,18 @@ import { Cart } from './cart.model';
 @Component({
     selector: 'my-app',
     template: `
-    <div class="btn-group" data-toggle="buttons">
-      <div class="container well">
+
+      <div class="navigation well">
         <label class="btn btn-success"  (click)="adminTrue()">
            Admin</label>
         <label class="btn btn-success" (click)="adminFalse()">
            Customer</label>
       </div>
-    </div>
+
 
     <div class="container" *ngIf="admin">
-      <h1 class="text-center">Music Store(admin)</h1>
+
+      <h1 class="text-center storeName">My Music Store(admin)</h1>
       <cd-list [childCDList]="masterCDList"
                 (clickSender)="editCD($event)"
       ></cd-list>
@@ -26,7 +27,7 @@ import { Cart } from './cart.model';
     </div>
 
     <div class="container" *ngIf="!admin">
-      <h1 class="text-center">Music Store (customer)</h1>
+      <h1 class="text-center storeName">Emergency Perfume for the Soul</h1>
       <customer-cd-list [childCDList]="masterCDList"
                         [childCart]="masterCart"
                 (addToCartSender)="addCdToCart($event)"
@@ -42,8 +43,8 @@ import { Cart } from './cart.model';
 
 export class AppComponent {
   public masterCDList: CD[] = [
-    new CD("Good Song", "Great Artist", "Rock", 13.98),
-    new CD("Better Song", "Best Artist", "Indie", 19.76),
+    new CD("Lateralus", "Tool", "Rock", 18.98, "http://www.wallpapersxl.com/wallpapers/1280x800/colorful/129135/colorful-re-vector-art-music-129135.jpg"),
+    new CD("Salival", "Tool", "Rock", 19.76, "https://upload.wikimedia.org/wikipedia/en/a/a0/Salival.jpg"),
     new CD("Bad Song", "Poor Artist", "Rap", 4.23)
   ];
   public masterCart = new Cart("myCart");

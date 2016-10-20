@@ -1,3 +1,13 @@
+body {
+  /*background-image: url("http://freedesignfile.com/upload/2013/08/Butterflies-with-music-5.jpg");*/
+  background-image:url("http://www.wallpapersxl.com/wallpapers/1280x800/colorful/129135/colorful-re-vector-art-music-129135.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+
+}
 .albumCover{
   width: 100px;
   height: 100px;
@@ -13,4 +23,43 @@
 
 .orderArea{
   width: 100%;
+}
+.cdBox{
+  padding: 20px;
+  padding-bottom: 40px;
+  position: relative;
+  border-radius: 10px;
+}
+.cdBox:hover{
+  background: rgba(3, 33, 142, 0.3);
+  box-shadow: inset 2px 2px 333px black;
+  cursor: pointer;
+}
+.cdBox:hover:after{
+  content: "BUY ME!";
+  font-size: 9em;
+  text-align: center;
+  position: absolute;;
+  left: 0;
+  top: 0;
+  z-index: 33;
+  background: rgba(44, 203, 033, 0.2);
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-shadow: 0 0 38px rgba(0, 0, 45, 0.6);
+  font-family: 'Gloria Hallelujah', cursive;
+}
+.navigation{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: black;
+}
+.storeName{
+  margin-top: 97px;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 5em !important;
+  text-shadow:  1px 1px 3px rgba(33, 33, 33, 0.7);
 }
