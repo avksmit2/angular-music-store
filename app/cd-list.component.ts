@@ -21,9 +21,15 @@ import { CD } from './cd.model'
       </select>
       <label>Display By Artist</label>
       <input (keyup)="onArtistChange($event.target.value)" class="form-control">
+      <label>Sort By Price</label>
+      <select (change)="onPriceSortChange($event.target.value)" class="form-control">
+        <option selected="selected">Show All</option>
+        <option>Descending</option>
+        <option>Ascending</option>
+      </select>
     </div>
     <div class="container">
-      <div *ngFor="let currentCD of childCDList| genre:selectedGenre | artist:selectedArtist ">
+      <div *ngFor="let currentCD of childCDList| genre:selectedGenre | artist:selectedArtist |price:selectedPriceSort ">
         <h3>{{ currentCD.name }}</h3>
         <div class="row">
           <div class="col-xs-2">
@@ -48,6 +54,7 @@ export class CDListComponent {
   @Output() clickSender = new EventEmitter();
   public selectedGenre = "Show All";
   public selectedArtist = "Show All";
+  public selectedPriceSort = "Show All";
   editCD(cdToEdit: CD) {
     this.clickSender.emit(cdToEdit);
   }
@@ -57,4 +64,8 @@ export class CDListComponent {
   onArtistChange(artistEntered: string) {
     this.selectedArtist = artistEntered;
   }
+  onPriceSortChange(priceSortEntered: string){
+    this.selectedPriceSort = priceSortEntered;
+  }
+
 }

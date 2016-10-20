@@ -7,10 +7,11 @@ import { EditCDComponent } from './edit-cd.component';
 import { NewCDComponent } from './new-cd.component';
 import { GenrePipe } from './genre.pipe';
 import { ArtistPipe } from './artist.pipe';
+import { PricePipe } from './price.pipe';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, CDListComponent, EditCDComponent, NewCDComponent, GenrePipe, ArtistPipe ],
+  declarations: [ AppComponent, CDListComponent, EditCDComponent, NewCDComponent, GenrePipe, ArtistPipe, PricePipe ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
