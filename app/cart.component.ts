@@ -5,10 +5,11 @@ import { Cart } from './cart.model';
 @Component({
   selector: 'cart',
   template: `
-    <div class="well">
-      <h1>Your Cart <span> $\{{childCart.getCartTotal()}}</span></h1>
-      <div class="orderArea" *ngFor="let currentCd of childCart.cart">
-        <div class="albumBox">
+    <div class="shoppingCart">
+    <img class="shoppingCartOverlay" src="http://4.bp.blogspot.com/-ZCv883ZzkEE/VHuZKcdLlsI/AAAAAAAAEzY/ogHECRIt-4Y/s1600/shopping%2Bcart.png">
+       <span class="total"> $\{{childCart.getCartTotal()}}</span>
+      <div class="orderArea">
+        <div class="albumBox"  *ngFor="let currentCd of childCart.cart">
           <img class="albumCover"  [src]="currentCd.albumCover" onError="this.src='https://ugotalksalot.files.wordpress.com/2016/06/no-thumb.jpg';">
         <p>cd: {{currentCd.name}}</p>
         </div>

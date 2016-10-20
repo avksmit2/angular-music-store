@@ -43,7 +43,7 @@ import { Cart } from './cart.model';
 
 export class AppComponent {
   public masterCDList: CD[] = [
-    new CD("Lateralus", "Tool", "Rock", 18.98, "http://www.wallpapersxl.com/wallpapers/1280x800/colorful/129135/colorful-re-vector-art-music-129135.jpg"),
+    new CD("Lateralus", "Tool", "Rock", 18.98, "https://i.ytimg.com/vi/JCDjP4JnpGU/maxresdefault.jpg"),
     new CD("Salival", "Tool", "Rock", 19.76, "https://upload.wikimedia.org/wikipedia/en/a/a0/Salival.jpg"),
     new CD("Bad Song", "Poor Artist", "Rap", 4.23)
   ];

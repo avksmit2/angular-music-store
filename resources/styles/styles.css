@@ -63,3 +63,32 @@ body {
   font-size: 5em !important;
   text-shadow:  1px 1px 3px rgba(33, 33, 33, 0.7);
 }
+.shoppingCart{
+  background: url("http://4.bp.blogspot.com/-ZCv883ZzkEE/VHuZKcdLlsI/AAAAAAAAEzY/ogHECRIt-4Y/s1600/shopping%2Bcart.png") top center no-repeat;
+  background-size: cover;
+  height: 800px;
+  position: fixed;
+  bottom: -400px;
+  width: 800px;
+}
+.shoppingCartOverlay{
+  z-index: 99;
+  position: absolute;
+  width: 1039px;
+  left: -118px;
+}
+.orderArea{
+  margin-left: 224px;
+  margin-top: 76px;
+  width: 400px;
+}
+.total{
+  position: fixed;
+  bottom: 0;
+  left: 60%;
+  font-size: 8em;
+  color: pink;
+  font-family: 'Shadows Into Light', cursive;
+  text-shadow: 0 0 19px black;
+
+}
