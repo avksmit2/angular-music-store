@@ -20,7 +20,7 @@ import { Cart } from './cart.model';
       <h1 class="text-center">Music Store (customer)</h1>
       <customer-cd-list [childCDList]="masterCDList"
                         [childCart]="masterCart"
-                (clickSender)="editCD($event)"
+                (addToCartSender)="addCdToCart($event)"
       ></customer-cd-list>
       <cart
         [childCart]="masterCart"
@@ -52,5 +52,8 @@ export class AppComponent {
   }
   addCD(newCDFromChild: CD) {
     this.masterCDList.push(newCDFromChild);
+  }
+  addCdToCart(clickedCd: CD){
+    this.masterCart.cart.push(clickedCd);
   }
 }

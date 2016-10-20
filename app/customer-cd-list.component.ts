@@ -6,7 +6,7 @@ import { Cart } from './cart.model';
   selector: 'customer-cd-list',
   template: `
     <h1>Current CDs</h1>
-{{childCart.name}}
+
     <div id="filters">
       <label>Display By Genre</label>
       <select (change)="onGenreChange($event.target.value)" class="form-control">
@@ -44,7 +44,8 @@ import { Cart } from './cart.model';
           </div><div class="col-xs-2">
             <h5> $ {{ currentCD.price }}</h5>
           </div>
-          <button (click)="addToCart(currentCD)">Add To Cart + </button>
+          <button (click)="addToCart(currentCD)">Add To Cart +
+           </button>
         </div>
       </div>
     </div>
@@ -53,8 +54,9 @@ import { Cart } from './cart.model';
 
 export class CustomerCDListComponent {
   @Input() childCDList: CD[];
-  @Input() childCart: Cart[];
+  @Input() childCart: Cart;
   @Output() clickSender = new EventEmitter();
+  @Output() addToCartSender = new EventEmitter();
   public selectedGenre = "Show All";
   public selectedArtist = "Show All";
   public selectedPriceSort = "Show All";
@@ -69,8 +71,7 @@ export class CustomerCDListComponent {
   onPriceSortChange(priceSortEntered: string){
     this.selectedPriceSort = priceSortEntered;
   }
-  // addToCart(currentCd:CD){
-  //   this.myCart.cart.push(currentCd);
-  // }
-
+  addToCart(currentCd:CD){
+    this.addToCartSender.emit(currentCd);
+  }
 }
