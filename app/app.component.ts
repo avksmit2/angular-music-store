@@ -16,7 +16,7 @@ import { Cart } from './cart.model';
 
     <div class="container" *ngIf="admin">
 
-      <h1 class="text-center storeName">My Music Store(admin)</h1>
+      <h1 class="text-center storeName pulse">My Music Store(admin)</h1>
       <cd-list [childCDList]="masterCDList"
                 (clickSender)="editCD($event)"
       ></cd-list>
@@ -27,7 +27,7 @@ import { Cart } from './cart.model';
     </div>
 
     <div class="container" *ngIf="!admin">
-      <h1 class="text-center storeName">Emergency Perfume for the Soul</h1>
+      <h1 class="text-center storeName pulse">Emergency Perfume for the Soul</h1>
       <customer-cd-list [childCDList]="masterCDList"
                         [childCart]="masterCart"
                 (addToCartSender)="addCdToCart($event)"
