@@ -5,6 +5,15 @@ import { Cart } from './cart.model';
 @Component({
     selector: 'my-app',
     template: `
+    <div class="btn-group" data-toggle="buttons">
+      <div class="container well">
+        <label class="btn btn-success"  (click)="adminTrue()">
+           Admin</label>
+        <label class="btn btn-success" (click)="adminFalse()">
+           Customer</label>
+      </div>
+    </div>
+
     <div class="container" *ngIf="admin">
       <h1 class="text-center">Music Store(admin)</h1>
       <cd-list [childCDList]="masterCDList"
@@ -55,5 +64,11 @@ export class AppComponent {
   }
   addCdToCart(clickedCd: CD){
     this.masterCart.cart.push(clickedCd);
+  }
+  adminTrue(){
+    this.admin = true;
+  }
+  adminFalse(){
+    this.admin = false;
   }
 }
