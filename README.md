@@ -1,21 +1,10 @@
-# _ _
+# Music Store
 
-#### _ _ {October 17, 2016}
+#### A music store where a person can buy or browse cds. {October 17, 2016}
 
 #### By _**Angela Smith**_
 
-## Description
-
-_ _
-
-## Specifications
-
-| Behavior      | Input       |Output|
-| ------------- |-------------| -----|
-| Behavior      | Input       |Output|
-| Behavior      | Input       |Output|
-| Behavior      | Input       |Output|
-
+## This site was built with Angular and allows a user to buy or browse cds.
 
 ## Setup/Installation Requirements
 
